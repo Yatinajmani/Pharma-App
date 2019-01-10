@@ -1,0 +1,83 @@
+<header>
+  <div class="navbar">
+    <a routerLink="/Welcome">
+      <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:15px;float: left;margin-top:3px;margin-left: -15px;"></i> &nbsp;&nbsp;Login
+    </a>
+    <a routerLink="/mainpage">Skip</a>
+    <!-- <div class="dropdown">
+      <button class="dropbtn">Dropdown 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>Mega Menu</h2>
+        </div>   
+        <div class="row">
+          <div class="column">
+            <h3>Category 1</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+          <div class="column">
+            <h3>Category 2</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+          <div class="column">
+            <h3>Category 3</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+  </div>
+</header>
+<div class="container-fluid" style="padding-top:20px;">
+  <div class="row" style="text-align:center;">
+    <div class="col-md-12">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label style="float:left;">Phone</label>
+          <input type="number" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">phone is required</div>
+            <div *ngIf="f.phone.errors.minlength">phone must be at least 10 digits</div>
+            <!-- <div *ngIf="f.phone.errors.maxlength">phone must be at least 10 digits</div> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="float:left;">Password</label>
+          <input type="password" formControlName="password" id="password-field" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+        <p><a routerLink="/loginotp" style="float:left;padding-bottom: 10px;">Login With OTP</a>
+        <a routerLink="/passwordforget" style="float:right;padding-bottom: 10px;">Forget Password?</a></p>
+        <p style="float:left;padding-top: 25px;"> Don't have an account? 
+          <a routerLink="/register">Sign Up</a>
+        </p>
+        <button [disabled]="loading" id="Loginbtn">LOGIN</button>
+        <!-- <button (click)="socialSignIn('google')" id="Googlebtn">Sign in with Google</button> -->
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  $(".toggle-password").click(function() {
+
+    $(this).toggleClass("fa-eye fa-eye");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+</script>

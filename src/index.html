@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pharmacia</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/png" href="logo.png"/> -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    #loginbtn{
+      color:black;width:160px;border: 2px solid #19a3eb;border-radius: 40px;background: transparent;padding-bottom: 10px;
+    }
+    #loginmessage{
+      color:#19a3eb;padding-top: 10px;padding-bottom: 10px;
+    }
+    #registerbtn{
+      color:black;width:160px;border: 2px solid #ff2e49;border-radius: 40px;background: transparent;padding-bottom: 10px;
+    }
+    #registermessage{
+      color:#19a3eb;padding-top: 10px;padding-bottom: 10px;
+    }
+    #letbutton{
+      background-color:#19a3eb;color:white;border-radius: 45px;width: 250px;margin-bottom: 50px;
+    }
+    #Registerbtn{
+      color:white;width:250px;border: 2px solid #19a3eb;border-radius: 40px;background-color:#19a3eb;height: 45px;
+    }
+    #Loginbtn{
+      color:white;width:250px;height:45px;border: 2px solid #19a3eb;border-radius: 40px;background-color:#19a3eb;
+    }
+    #Googlebtn{
+      margin-top:10px;color:white;width:250px;border: 2px solid #ff2e49;height:30px;border-radius: 40px;background-color:#ff2e49;
+    }
+    #OTPbtn{
+      margin-top:40px;color:white;width:250px;height:45px;border: 2px solid #19a3eb;border-radius: 40px;background-color:#19a3eb;
+    }
+    
+    .field-icon {
+      float: right;
+      margin-right: 5px;
+      margin-top: -25px;
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script>
+  $(".toggle-password").click(function() {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+</script>
+</html>

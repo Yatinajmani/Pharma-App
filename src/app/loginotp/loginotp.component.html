@@ -1,0 +1,22 @@
+<header>
+  <div class="navbar">
+    <a routerLink="/login">
+      <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:15px;float: left;margin-top:3px;margin-left: -15px;"></i> &nbsp;&nbsp;Login with OTP
+    </a>
+  </div>
+</header>
+<div class="row" style="text-align:center;padding-top:20px;">
+  <div class="col-md-12">
+    <form [formGroup]="loginotpForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label style="float:left;padding-top:20px;padding-bottom: 20px;text-align: justify;">Please enter your registered phone. We will send you an OTP to Login</label>
+        <input type="number" formControlName="phone" placeholder="Phone number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required">phone is required</div>
+          <div *ngIf="f.phone.errors.minlength">phone must be at least 10 digits</div>
+        </div>
+      </div>
+      <button [disabled]="loading" id="OTPbtn">SUBMIT</button>
+    </form>
+  </div>
+</div>

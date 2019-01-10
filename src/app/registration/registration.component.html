@@ -1,0 +1,98 @@
+<header>
+  <div class="navbar">
+    <a routerLink="/Welcome">
+      <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:15px;float: left;margin-top:3px;margin-left: -15px;"></i> &nbsp;&nbsp;Join Pharmacia
+    </a>
+    <!-- <a href="#news">News</a> -->
+    <!-- <div class="dropdown">
+      <button class="dropbtn">Dropdown 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>Mega Menu</h2>
+        </div>   
+        <div class="row">
+          <div class="column">
+            <h3>Category 1</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+          <div class="column">
+            <h3>Category 2</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+          <div class="column">
+            <h3>Category 3</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+  </div>
+</header>
+<div class="container-fluid" style="padding-top: 20px;">
+  <div class="row" style="text-align:center;">
+    <div class="col-md-12">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label style="float:left;">Retailer Name</label>
+          <input type="text" formControlName="retailerName" class="form-control" style="width:100%;" [ngClass]="{ 'is-invalid': submitted && f.retailerName.errors }" />
+          <div *ngIf="submitted && f.retailerName.errors" class="invalid-feedback">
+            <div *ngIf="f.retailerName.errors.required">Retailer Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="float:left;">Shop Name</label>
+          <input type="text" formControlName="shopName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.shopName.errors }" />
+          <div *ngIf="submitted && f.shopName.errors" class="invalid-feedback">
+            <div *ngIf="f.shopName.errors.required">Shop Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="float:left;">Phone</label>
+          <input type="number" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">phone is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="float:left;">Email</label>
+          <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="float:left;">Password</label>
+          <input type="password" formControlName="password" id="password-field1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <span toggle="#password-field1" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+        <p> Already have an account? <a routerLink="/login">Login</a></p>
+        <button [disabled]="loading" id="Registerbtn">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  $(".toggle-password").click(function() {
+
+    $(this).toggleClass("fa-eye fa-eye");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+</script>
